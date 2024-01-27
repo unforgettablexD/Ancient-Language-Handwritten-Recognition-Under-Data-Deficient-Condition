@@ -26,11 +26,71 @@ The system comprises several key steps:
 <p align="center"><img src="https://www.dropbox.com/s/bn8djgwnhiunyz1/sys_block_5_crop.png?dl=0&raw=1"></p>
 
 ## Usage
-1. Install [requirements.txt](https://github.com/unforgettablexD/Ancient-Language-Handwritten-Recognition-Under-Data-Deficient-Condition/blob/main/requirements.txt) and required dependencies like cuDNN. ```pip install -r requirements.txt```
-2. Clone this repo: ``` git clone https://github.com/unforgettablexD/Ancient-Language-Handwritten-Recognition-Under-Data-Deficient-Condition.git```
-3. Download and extract the [Tamil dataset](https://www.kaggle.com/datasets/sudalairajkumar/tamil-nlp)
-[Sanskrit dataset](https://www.kaggle.com/datasets/ashokpant/devanagari-character-dataset/data)
-[EMNIST dataset](https://www.nist.gov/itl/products-and-services/emnist-dataset)
+Clone this repo: ``` git clone https://github.com/unforgettablexD/Ancient-Language-Handwritten-Recognition-Under-Data-Deficient-Condition.git```
+
+# Exceution of Pickle file (hdf5, h5)
+We have provided hdf5, h5 file for showing our accuracy. 
+To run the pickle file to get the accuracy that we mentioned in the results. Please follow these steps.  
+
+You need anaconda install in your system.
+Then create an environment. 
+Do a git clone. Go to the root folder of the project.
+Then exceute this commands. 
+```
+conda create --name pickleenv python=3.11.5
+```
+```
+conda activate pickleenv 
+```
+```
+pip install -r require_pickle.txt
+```
+
+
+For getting the accuracy of Sanskrit run
+```
+python sanskrit_run_pickle.py
+```
+For getting the accuracy of Tamil run
+```
+python tamil_run_pickle.py 
+```
+For getting the accuracy of EMNIST run:
+```
+python emnist_run_pickle.py
+```
+# Exceution of Code 
+All the datasets are already added to the code base. So no need to download. 
+But, if you want to have a look at the dataset. Here are the links. 
+- [Tamil dataset](https://www.kaggle.com/datasets/sudalairajkumar/tamil-nlp)
+- [Sanskrit dataset](https://www.kaggle.com/datasets/ashokpant/devanagari-character-dataset/data)
+- [EMNIST dataset](https://www.nist.gov/itl/products-and-services/emnist-dataset)
+
+You need to have windows or mac. Certain laptops and OS can't run this code due to chipset and os version issue. 
+It is known best to work with macOS 14.1.1 and Intel Chipset.
+```
+conda create --name myenv python=3.6.8
+```
+
+```
+conda activate myenv 
+```
+
+
+```
+pip install -r requirements.txt
+```
+To run the code for training. 
+```
+python main.py --cnt 190
+```
+here 190 is the number of training samples per class.
+After training is completed you can generate new images as required. Just have to provide the count of the image (--samples_to_generate 3) 
+This command generates new images:
+```
+python main.py -dg --save_dir emnist_bal_200/ -w emnist_bal_200/trained_model.h5 --samples_to_generate 10
+```
+10 here is the number of samples to generate. 
 
 5. The following command trains the fresh CapsNet M<sub>1</sub> as illustrated in step (a):
 ```
